@@ -6,7 +6,7 @@ post '/pull/' do
   config = JSON.parse(params[:config])
   
   # Build edition. Our publication is a picture of the powerpuff girls based on a user choice specified through the params[config]
-  @img = "images/#{config['power_puff_girl']}/#{rand(9)+1}.jpeg"
+  @img = "/images/#{config['power_puff_girl']}/#{rand(9)+1}.jpeg"
   @message = "It's #{config['power_puff_girl'].capitalize}!"
   @day = Time.now.strftime('%A')
   erb :hello_world
