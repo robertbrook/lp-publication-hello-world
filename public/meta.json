@@ -1,0 +1,6 @@
+{
+  "name":"Hello, World!",
+  "description":"Example pull publication for Little Printer",
+  "delivered_every":"day",
+  "content_type":"pull"
+}

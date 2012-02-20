@@ -1,0 +1,6 @@
+{"fields":[{
+  "type": "select",
+  "name": "power_puff_girl",
+  "label": "Power Puff Girl",
+	"options": [["Buttercup", "buttercup"], ["Blossom", "blossom"], ["Bubbles", "bubbles"]]
+}]}
