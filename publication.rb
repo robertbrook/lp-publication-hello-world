@@ -15,7 +15,7 @@ end
 get '/sample/' do
   # Return a sample of our publication.
   config = {'power_puff_girl'=>'buttercup'}
-  @img = "images/#{config['power_puff_girl']}/#{rand(9)+1}.jpeg"
+  @img = "/images/#{config['power_puff_girl']}/#{rand(9)+1}.jpeg"
   @message = "It's #{config['power_puff_girl'].capitalize}!"
   @day = Time.now.strftime('%A')
   erb :hello_world
