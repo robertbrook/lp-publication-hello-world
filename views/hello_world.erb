@@ -2,17 +2,19 @@
 <html>
 <head>
   <title>Hello World</title>
-  <style type="text/css" media="screen">
+  <style type="text/css">
+    body {
+      width: 384px;
+      padding: 0px;
+      margin: 0px;
+    }
+    h1 {
+      word-wrap: break-word;
+      font-family:sans-serif;
+    }
   </style>
 </head>
 <body>
-	<h1><%= @message %></h1>
-	<!-- Dither this image -->
-	<img width="384" class="dither" src="<%=@img %>">
-	
-	<h3>Today is: <%= @day %></h3>
-	
-	<!-- don't dither this one -->
-	<img width="384" src="/images/powerpuff_girls.jpeg">
+	<h1><%= @greeting %></h1>
 </body>
 </html>

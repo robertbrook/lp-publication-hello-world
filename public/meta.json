@@ -1,6 +1,18 @@
 {
   "name":"Hello, World!",
-  "description":"Example pull publication for Little Printer",
+  "description":"Example publication for Little Printer",
   "delivered_every":"day",
   "content_type":"pull"
+  {"fields":[{
+    "type": "select",
+    "name": "lang",
+    "label": "Select your greeting language",
+  	"options": [["English", "english"], ["French", "french"], ["German", "german"], ["Spanish", "spanish"], ["Portuguese", "portuguese"], ["Italian", "italian"], ["Swedish", "swedish"]]
+    }
+    {
+      "type": "input",
+      "name": "name",
+      "label": "Enter your name"
+    }
+  ]}
 }

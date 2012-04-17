@@ -1,6 +1,13 @@
 {"fields":[{
   "type": "select",
-  "name": "power_puff_girl",
-  "label": "Power Puff Girl",
-	"options": [["Buttercup", "buttercup"], ["Blossom", "blossom"], ["Bubbles", "bubbles"]]
-}]}
+  "name": "lang",
+  "label": "Select your greeting language",
+	"options": [["English", "english"], ["French", "french"], ["German", "german"], ["Spanish", "spanish"], ["Portuguese", "portuguese"], ["Italian", "italian"], ["Swedish", "swedish"]]
+  }
+  {
+    "type": "input",
+    "name": "name",
+    "label": "Enter your name"
+  }
+]}
+
