@@ -20,13 +20,13 @@ greetings = {"english" => ["Good morning", "Hello", "Good evening"],
 #   The name of the person to greet. The subscriber will have entered their name at the subscribe stage.
 #
 # == Returns:
-# HTML/CSS edition. This publication changes the greeting depending on the time of day. It is using UTC to determine the greeting.
+# HTML/CSS edition with etag. This publication changes the greeting depending on the time of day. It is using UTC to determine the greeting.
 #
 get '/edition/' do
   # Extract configuration provided by user through BERG Cloud. These options are defined by the JSON in meta.json.
   language = params['lang'];
   name = params['name'];
-
+  
   i = 1
   case Time.now.utc.hour
   when 4..11
@@ -38,8 +38,12 @@ get '/edition/' do
     i = 2
   end
 
+  # Set the etag to be this content
+  etag Digest::MD5.hexdigest(language+name)
+  
   # Build this edition.
   @greeting = "#{greetings[language][i]}, #{name}"
+  
   erb :hello_world
 end
 
@@ -50,12 +54,14 @@ end
 #   None.
 #
 # == Returns:
-# HTML/CSS edition. This publication changes the greeting depending on the time of day. It is using UTC to determine the greeting.
+# HTML/CSS edition with etag. This publication changes the greeting depending on the time of day. It is using UTC to determine the greeting.
 #
 get '/sample/' do
   language = 'english';
   name = 'Little Printer';
-  @greeting = "#{greetings[language][i]}, #{name}"
+  @greeting = "#{greetings[language][0]}, #{name}"
+  # Set the etag to be this content
+  etag Digest::MD5.hexdigest(language+name)
   erb :hello_world
 end
 
