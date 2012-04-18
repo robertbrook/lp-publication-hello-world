@@ -1,18 +1,48 @@
 {
-  "name":"Hello, World!",
-  "description":"Example publication for Little Printer",
-  "delivered_every":"day",
-  "content_type":"pull"
-  {"fields":[{
-      "type": "select",
-      "name": "lang",
-      "label": "Select your greeting language",
-    	"options": [["English", "english"], ["French", "french"], ["German", "german"], ["Spanish", "spanish"], ["Portuguese", "portuguese"], ["Italian", "italian"], ["Swedish", "swedish"]]
-    }
-    {
-      "type": "input",
-      "name": "name",
-      "label": "Enter your name"
-    }
-  ]}
+    "name": "Hello, World!",
+    "description": "Example publication for Little Printer",
+    "delivered_every": "day",
+    "content_type": "pull",
+    "fields": [
+        {
+            "type": "input",
+            "name": "name",
+            "label": "Enter your name"
+        },
+        {
+            "type": "select",
+            "name": "lang",
+            "label": "Select your greeting language",
+            "options": [
+                [
+                    "English",
+                    "english"
+                ],
+                [
+                    "French",
+                    "french"
+                ],
+                [
+                    "German",
+                    "german"
+                ],
+                [
+                    "Spanish",
+                    "spanish"
+                ],
+                [
+                    "Portuguese",
+                    "portuguese"
+                ],
+                [
+                    "Italian",
+                    "italian"
+                ],
+                [
+                    "Swedish",
+                    "swedish"
+                ]
+            ]
+        }
+    ]
 }
