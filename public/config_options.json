@@ -1,13 +1,47 @@
-{"fields":[{
-  "type": "select",
-  "name": "lang",
-  "label": "Select your greeting language",
-	"options": [["English", "english"], ["French", "french"], ["German", "german"], ["Spanish", "spanish"], ["Portuguese", "portuguese"], ["Italian", "italian"], ["Swedish", "swedish"]]
-  }
-  {
-    "type": "input",
-    "name": "name",
-    "label": "Enter your name"
-  }
-]}
+{
+    "fields": [
+        {
+            "type": "select",
+            "name": "lang",
+            "label": "Select your greeting language",
+            "options": [
+                [
+                    "English",
+                    "english"
+                ],
+                [
+                    "French",
+                    "french"
+                ],
+                [
+                    "German",
+                    "german"
+                ],
+                [
+                    "Spanish",
+                    "spanish"
+                ],
+                [
+                    "Portuguese",
+                    "portuguese"
+                ],
+                [
+                    "Italian",
+                    "italian"
+                ],
+                [
+                    "Swedish",
+                    "swedish"
+                ]
+            ]
+        },
+        {
+            "type": "input",
+            "name": "name",
+            "label": "Enter your name"
+        }
+    ]
+}
+
+
 
