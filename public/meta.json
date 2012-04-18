@@ -6,7 +6,7 @@
     "config" : {
       "fields": [
           {
-              "type": "input",
+              "type": "text",
               "name": "name",
               "label": "Enter your name"
           },
