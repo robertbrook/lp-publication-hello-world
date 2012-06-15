@@ -98,7 +98,7 @@ post '/validate_config/' do
   response[:valid] = true
   
   # Extract config from POST
-  user_settings = JSON.parse(params[:config])
+  user_settings = JSON.parse(params[:sub_config])
 
   # If the user did choose a language:
   if user_settings['lang'].nil? || user_settings['lang']=""
