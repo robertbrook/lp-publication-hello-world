@@ -79,7 +79,6 @@ get '/sample/' do
 end
 
 
-# Returns a sample of the publication. Triggered by the user hitting 'print sample' on you publication's page on BERG Cloud.
 #
 # == Parameters:
 # :config
@@ -101,13 +100,13 @@ post '/validate_config/' do
   user_settings = JSON.parse(params[:sub_config])
 
   # If the user did choose a language:
-  if user_settings['lang'].nil? || user_settings['lang']=""
+  if user_settings['lang'].nil? || user_settings['lang']==""
     response[:valid] = false
     response[:errors].push('Please select a language from the select box.')
   end
   
   # If the user did not fill in the name option:
-  if user_settings['name'].nil? || user_settings['name']=""
+  if user_settings['name'].nil? || user_settings['name']==""
     response[:valid] = false
     response[:errors].push('Please enter your name into the name box.')
   end
