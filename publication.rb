@@ -18,16 +18,20 @@ greetings = {"english" => ["Good morning", "Hello", "Good evening"],
 #   The language for the greeting. The subscriber will have picked this from the values defined in meta.json.
 # name
 #   The name of the person to greet. The subscriber will have entered their name at the subscribe stage.
-#
+# local_delivery_time
+#   The time where the subscribed bot is.
 # == Returns:
 # HTML/CSS edition with etag. This publication changes the greeting depending on the time of day. It is using UTC to determine the greeting.
 #
 get '/edition/' do
-  # Our publication is only delivered on Mondays, so we need to work out if it is a Monday in the subscriber's timezone.
-  date = params['local_delivery_time']
+  return 400, 'Error: No local_delivery_time was provided' if params['local_delivery_time'].nil?
+  return 400, 'Error: No lang was provided' if params['lang'].nil?
+  return 400, 'Error: No name was provided' if params['name'].nil?
   
+  # Our publication is only delivered on Mondays, so we need to work out if it is a Monday in the subscriber's timezone. 
+  date = Time.parse(params['local_delivery_time'])
   # Return if today is not Monday.
-  return unless Time.parse(date).monday?
+  return unless date.monday?
   
   # Extract configuration provided by user through BERG Cloud. These options are defined by the JSON in meta.json.
   language = params['lang'];
