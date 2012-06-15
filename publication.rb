@@ -23,10 +23,17 @@ greetings = {"english" => ["Good morning", "Hello", "Good evening"],
 # HTML/CSS edition with etag. This publication changes the greeting depending on the time of day. It is using UTC to determine the greeting.
 #
 get '/edition/' do
+  # Our publication is only delivered on Mondays, so we need to work out if it is a Monday in the subscriber's timezone.
+  date = params['local_delivery_time']
+  
+  # Return if today is not Monday.
+  return unless Time.parse(date).monday?
+  
   # Extract configuration provided by user through BERG Cloud. These options are defined by the JSON in meta.json.
   language = params['lang'];
   name = params['name'];
   
+  # Pick a time of day appropriate greeting
   i = 1
   case Time.now.utc.hour
   when 4..11
@@ -38,8 +45,10 @@ get '/edition/' do
     i = 2
   end
 
-  # Set the etag to be this content
-  etag Digest::MD5.hexdigest(language+name)
+  # Set the etag to be this content. This means the user will not get the same content twice, 
+  # but if they reset their subscription (with, say, a different language they will get new content 
+  # if they also set their subscription to be in the future)
+  etag Digest::MD5.hexdigest(language+name+date.strftime('%d%m%Y'))
   
   # Build this edition.
   @greeting = "#{greetings[language][i]}, #{name}"
@@ -82,24 +91,24 @@ end
 post '/validate_config/' do
   response = {}
   response[:errors] = []
+  response[:valid] = true
   
   # Extract config from POST
   user_settings = JSON.parse(params[:config])
 
-  # If the user did not fill in the lang option:
+  # If the user did choose a language:
   if user_settings['lang'].nil?
     response[:valid] = false
     response[:errors].push('Please select a language from the select box.')
   end
   
+  # If the user did not fill in the name option:
   if user_settings['name'].nil?
     response[:valid] = false
     response[:errors].push('Please enter your name into the name box.')
   end
   
-  if greetings.include?(user_settings['lang'].downcase)
-    response[:valid] = true
-  else 
+  unless greetings.include?(user_settings['lang'].downcase)
     # Given that that select box is populated from a list of languages that we have defined this should never happen.
     response[:valid] = false
     response[:errors].push("We couldn't find the language you selected (#{config["lang"]}) Please select another")
