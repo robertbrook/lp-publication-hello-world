@@ -19,7 +19,7 @@ greetings = {"english" => ["Good morning", "Hello", "Good evening"],
 # name
 #   The name of the person to greet. The subscriber will have entered their name at the subscribe stage.
 # local_delivery_time
-#   The time where the subscribed bot is.
+#   The local time where the subscribed bot is.
 # == Returns:
 # HTML/CSS edition with etag. This publication changes the greeting depending on the time of day. It is using UTC to determine the greeting.
 #
