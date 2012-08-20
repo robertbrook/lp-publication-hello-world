@@ -39,7 +39,7 @@ get '/edition/' do
   
   # Pick a time of day appropriate greeting
   i = 1
-  case Time.now.utc.hour
+  case date.hour
   when 4..11
     i = 0
   when 12..17
@@ -114,7 +114,7 @@ post '/validate_config/' do
   unless greetings.include?(user_settings['lang'].downcase)
     # Given that that select box is populated from a list of languages that we have defined this should never happen.
     response[:valid] = false
-    response[:errors].push("We couldn't find the language you selected (#{config["lang"]}) Please select another")
+    response[:errors].push("We couldn't find the language you selected (#{user_settings['lang']}) Please select another")
   end
   
   content_type :json
