@@ -3,9 +3,9 @@
     "name": "Hello, World!",
     "description": "Example publication for Little Printer",
     "delivered_on": "every Monday",
-    "send_timezone_info": "true",
-    "send_delivery_count": "false",
-    "external_configuration": "false",
+    "send_timezone_info": true,
+    "send_delivery_count": false,
+    "external_configuration": false,
     "config" : {
       "fields": [
           {

@@ -96,6 +96,9 @@ post '/validate_config/' do
   response[:errors] = []
   response[:valid] = true
   
+  if params[:config].nil?
+    return 400, "You did not post any config to validate"
+  end
   # Extract config from POST
   user_settings = JSON.parse(params[:config])
 
