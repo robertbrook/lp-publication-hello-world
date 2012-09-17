@@ -1,4 +1,5 @@
 {
+    "owner_email" : "publishers@bergcloud.com",
     "publication_api_version":"1.0",
     "name": "Hello, World!",
     "description": "Example publication for Little Printer",
