@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hello World</title>
+  <title>UK Parliament News</title>
   <style type="text/css">
     body {
       width: 384px;
       padding: 0px;
       margin: 0px;
-    }
-    h1 {
-      word-wrap: break-word;
       font-family:sans-serif;
     }
   </style>
 </head>
 <body>
-	<h1><%= @greeting %></h1>
+	
+	<p><strong><%= @headline %></strong>
+	<br><%= @text %></p>
+
+<p>Published: <%= @published %></p>
+
+<p>Source: parliament.uk/business/news</p>
+
 </body>
 </html>
