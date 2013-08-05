@@ -2,6 +2,10 @@ require 'sinatra'
 require 'nokogiri'
 require 'open-uri'
 
+get '/' do 	
+	erb :index
+end
+
 get '/edition/' do
 
   doc = Nokogiri::HTML(open('http://www.parliament.uk/g/rss/news-feed/?pageInstanceId=209&limit=1'))

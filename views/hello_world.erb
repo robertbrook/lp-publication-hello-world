@@ -7,18 +7,21 @@
       width: 384px;
       padding: 0px;
       margin: 0px;
-      font-family:sans-serif;
+      font-family:'Arial';
+      border-top: 2px solid black;
+      border-bottom: 2px solid black;
     }
+    .bigger {font-size: 24px;}
+    .smaller {font-size: 20px;}
   </style>
 </head>
 <body>
-	
-	<p><strong><%= @headline %></strong>
+
+	<p class="bigger"><strong><%= @headline %></strong>
 	<br><%= @text %></p>
 
-<p>Published: <%= @published %></p>
-
-<p>Source: parliament.uk/business/news</p>
+	<p class="smaller"><strong>parliament.uk/business/news</strong>
+	<br><%= @published %></p>
 
 </body>
 </html>
