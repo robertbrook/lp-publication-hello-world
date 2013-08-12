@@ -8,20 +8,23 @@
       padding: 0px;
       margin: 0px;
       font-family:'Arial';
-      border-top: 2px solid black;
+      margin-top: 10px;
       border-bottom: 2px solid black;
     }
-    .bigger {font-size: 24px;}
-    .smaller {font-size: 20px;}
+    big {font-size: 26px;}
+    small {font-size: 20px;}
+    img {float:right;}
   </style>
 </head>
 <body>
+<img src="http://ukpnews.herokuapp.com/icon.png">
 
-	<p class="bigger"><strong><%= @headline %></strong>
-	<br><%= @text %></p>
+	<p><big><strong>parliament.uk latest news</strong></big>
+	<br><small><%= @published %></small></p>
+	
+	<p><big><%= @headline %></big>
+	<br><small><%= @text %></small></p>
 
-	<p class="smaller"><strong>parliament.uk/business/news</strong>
-	<br><%= @published %></p>
 
 </body>
 </html>
