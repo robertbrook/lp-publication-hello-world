@@ -1,4 +1,4 @@
-I should really update this README.
+I am updating this README.
 
 ----
 
