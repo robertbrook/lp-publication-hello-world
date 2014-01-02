@@ -31,7 +31,7 @@ get '/edition/' do
 #     @events.reverse!
     }
   
-#   etag Digest::MD5.hexdigest(@headline+@text+@published)
+  etag Digest::MD5.hexdigest(@headline+@text+@published)
     
   erb :hello_world
   
@@ -44,7 +44,7 @@ get '/sample/' do
   @published = "Thu, 01 Aug 2013 11:56:00 GMT"
   @events = {}
   
-#   etag Digest::MD5.hexdigest(@headline+@text+@published)
+  etag Digest::MD5.hexdigest(@headline+@text+@published)
   
   erb :hello_world
   
