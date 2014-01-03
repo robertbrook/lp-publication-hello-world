@@ -14,25 +14,21 @@
     big {font-size: 26px;}
     small {font-size: 20px;}
     img {float:right;}
-    .dateline {xfloat:right;}
   </style>
 </head>
 <body>
 <img src="http://ukpnews.herokuapp.com/icon.png">
-
-	<p><big>www.parliament.uk/<strong>news</strong></big>
+<p>&nbsp;
+<br><big>www.parliament.uk/<strong>news</strong></big></p>
+	<p><small><b><%= @headline %></b></small>
+	<br><small><%= @text %></small>
 	<br><small><%= @published %></small></p>
-	
-	<p><big><%= @headline %></big>
-	<br><small><%= @text %></small></p>
 
-	<p><big>services.parliament.uk/<strong>calendar</strong></big>
-    <br><small>Most recent updates</small>
-    </p>
-    
+	<p>&nbsp;
+	<br><big>services.parliament.uk/<strong>calendar</strong></big></p>
     <% @events.each do |event| %>
       <p>
-      <big><%= event[:subject] %></big><br>
+      <small><b><%= event[:subject] %></b></small><br>
       <small><%= event[:committee] %> (<%= event[:house] %> <%= event[:chamber] %>)</small><br>
       <small><%= event[:nicetime] %></small><br>
       

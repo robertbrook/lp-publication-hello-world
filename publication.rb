@@ -17,7 +17,7 @@ get '/edition/' do
   cal = Nokogiri::XML(open('http://services.parliament.uk/calendar/all.rss'))
   @events = []
   
-  cal.xpath('//parlycal:event')[0..4].each { |item|
+  cal.xpath('//parlycal:event')[0..2].each { |item|
     myevent = {}
     myevent[:house] = item.at_xpath('parlycal:house/text()').text
     myevent[:chamber] = item.at_xpath('parlycal:chamber/text()').text
